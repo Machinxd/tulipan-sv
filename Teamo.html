@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta Interactiva con Movimiento - San Valentín</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to top right, #ffb6c1, #ff1493); /* Gradiente de rosa claro a rosa fuerte */
+            position: relative;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fondo con patrón de corazones */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/09/19/pattern-2690602_960_720.png') repeat;
+            opacity: 0.2; /* Patrones de corazones más visibles */
+            pointer-events: none;
+        }
+
+        /* Efecto de corazones flotantes */
+        .corazon {
+            position: absolute;
+            background-color: #ff1493;
+            width: 50px;
+            height: 50px;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            animation: flotar 12s infinite;
+            opacity: 0.8;
+        }
+
+        .corazon:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-duration: 10s;
+        }
+
+        .corazon:nth-child(2) {
+            top: 30%;
+            left: 70%;
+            animation-duration: 8s;
+        }
+
+        .corazon:nth-child(3) {
+            top: 50%;
+            left: 25%;
+            animation-duration: 9s;
+        }
+
+        .corazon:nth-child(4) {
+            top: 70%;
+            left: 50%;
+            animation-duration: 15s;
+        }
+
+        /* Animación de los corazones flotando */
+        @keyframes flotar {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Más triángulos flotantes */
+        .triangulo {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 30px solid #ff69b4;
+            animation: flotarTriangulo 10s infinite;
+            opacity: 0.7;
+        }
+
+        /* Creación de muchos triángulos flotantes con posiciones aleatorias */
+        .triangulo:nth-child(n+5) {
+            animation-duration: 12s;
+            opacity: 0.7;
+        }
+
+        .triangulo:nth-child(5) { top: 25%; left: 10%; }
+        .triangulo:nth-child(6) { top: 10%; left: 40%; }
+        .triangulo:nth-child(7) { top: 70%; left: 60%; }
+        .triangulo:nth-child(8) { top: 50%; left: 80%; }
+        .triangulo:nth-child(9) { top: 60%; left: 20%; }
+        .triangulo:nth-child(10) { top: 80%; left: 30%; }
+        .triangulo:nth-child(11) { top: 40%; left: 90%; }
+        .triangulo:nth-child(12) { top: 20%; left: 70%; }
+        .triangulo:nth-child(13) { top: 90%; left: 10%; }
+
+        /* Animación de los triángulos flotando */
+        @keyframes flotarTriangulo {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-40px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Estilo de la carta */
+        .carta {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            transform: scale(0.8);
+            opacity: 0;
+            animation: abrirCarta 1s forwards; /* Animación para abrir la carta */
+            border: 3px solid #ff69b4;
+            z-index: 2;
+        }
+
+        /* Animación de apertura de la carta */
+        @keyframes abrirCarta {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Estilo al hacer hover sobre la carta */
+        .carta:hover {
+            transform: scale(1.05);
+        }
+
+        /* Estilo del mensaje */
+        .mensaje {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff1493;
+            font-weight: bold;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animación cuando se hace clic en el botón */
+        button:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease;
+        }
+
+        /* Estilo para el botón "Siguiente" */
+        .btn-siguiente {
+            display: none; /* Este botón estará oculto inicialmente */
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-siguiente:hover {
+            background-color: #ff69b4;
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animación cuando se hace clic en el botón */
+        .btn-siguiente:active {
+            transform: scale(0.9);
+            transition: transform 0.1s ease;
+        }
+    </style>
+</head>
+<body>
+    <!-- Corazones flotantes -->
+    <div class="corazon"></div>
+    <div class="corazon"></div>
+    <div class="corazon"></div>
+    <div class="corazon"></div>
+
+    <!-- Triángulos flotantes -->
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+    <div class="triangulo"></div>
+
+    <div class="carta" id="carta">
+        <h2>¿Qué crees que sea mi amor? 💕</h2>
+        <p>Haz clic en el corazón para descubrirlo... 💖</p>
+        <button onclick="mostrarMensaje()">❤️</button>
+        <p class="mensaje" id="mensaje">¿Quieres ser mi San Valentín este 14? 💘</p>
+        <button class="btn-siguiente" onclick="siguientePaso()">Siii, siguiente</button>
+    </div>
+
+    <script>
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+            document.getElementById("carta").classList.add("abierta");
+            document.querySelector(".btn-siguiente").style.display = "inline-block";  // Muestra el botón "Siguiente"
+        }
+
+        function siguientePaso() {
+            window.location.href = "segundaPagina.html";  // Redirige a la segunda página
+        }
+    </script>
+</body>
+</html>
