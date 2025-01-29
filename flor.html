@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tulipán para Ti</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #fff0f5; /* Fondo suave y romántico */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .contenido {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: mostrarTulipan 1.5s forwards;
+            border: 3px solid #ff69b4;
+        }
+
+        @keyframes mostrarTulipan {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .titulo {
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .mensaje {
+            font-size: 1.4em;
+            color: #ff1493;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .mensaje span {
+            color: #ff69b4;
+        }
+
+        .tulipan {
+            width: 200px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenido">
+        <div class="titulo">Un Tulipán para tí 🌷</div>
+        <img src="https://img.freepik.com/vector-premium/conjunto-tulipanes-vectoriales-colores-ilustracion-lindo-tulipan-rosa-amarillo-dibujos-animados_505245-388.jpg" alt="Tulipán Animado Celeste" class="tulipan">
+        <p class="mensaje">
+            Este tulipán simboliza mi amor por ti, cada pétalo refleja lo mucho que te aprecio y lo especial que eres en mi vida. <br>
+            <span>Tu sonrisa ilumina mis días, y tu amor llena mi corazón.</span><br>
+            Con cada amanecer, te amo más. 💖
+        </p>
+        <button>Te amo muchísimo, mi niña</button>
+    </div>
+
+</body>
+</html>
