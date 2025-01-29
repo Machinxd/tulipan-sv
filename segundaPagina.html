@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de San Valentín</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: #fff0f5; /* Color de fondo suave */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Fondo con detalles románticos */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://cdn.pixabay.com/photo/2017/08/30/09/19/pattern-2690602_960_720.png') repeat;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .carta {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: abrirCarta 1.5s forwards;
+            border: 3px solid #ff69b4;
+        }
+
+        /* Animación para abrir la carta */
+        @keyframes abrirCarta {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .titulo {
+            font-size: 2.5em;
+            color: #ff1493;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .mensaje {
+            font-size: 1.4em;
+            color: #ff1493;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .mensaje span {
+            color: #ff69b4;
+        }
+
+        .decoracion {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 3em;
+            color: #ff1493;
+        }
+
+        .corazon {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            font-size: 3em;
+            color: #ff1493;
+        }
+
+        /* Estilo del botón */
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carta">
+        <div class="titulo">Mi Querido Amor 💖</div>
+        <p class="mensaje">
+            Desde que te conocí, mi mundo ha sido un lugar más brillante y lleno de amor.<br>
+            <span>Tu sonrisa ilumina mis días, y tus abrazos me hacen sentir en casa.</span><br>
+            Quiero pasar este San Valentín a tu lado, porque mi vida sin ti no sería lo mismo.<br>
+            Te amo más de lo que las palabras pueden expresar. 💘
+        </p>
+        <button onclick="window.location.href='PoemaDeSanValentin.html'">Siguiente</button>
+
+        <div class="decoracion">💘</div>
+        <div class="corazon">❤️</div>
+    </div>
+
+</body>
+</html>
