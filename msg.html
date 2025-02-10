@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Amor</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: url('https://cdn.pixabay.com/photo/2017/02/14/10/00/background-2068372_1280.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+            padding: 15px;
+        }
+
+        .mensaje {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            position: relative;
+            z-index: 2;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: aparecer 1.5s forwards;
+            border: 3px solid #ff66b2;
+        }
+
+        @keyframes aparecer {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .titulo {
+            font-size: 2.2em;
+            color: #ff0033;
+            font-weight: bold;
+        }
+
+        .contenido {
+            font-size: 1.2em;
+            color: #cc0033;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contenido span {
+            color: #ff3399;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #ff3399;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff0066;
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mensaje">
+        <div class="titulo">Eres lo mejor de mi vida 💖</div>
+        <p class="contenido">
+            Desde el primer momento en que te vi, supe que eras especial.  
+            Cada día a tu lado es una historia llena de amor y felicidad.  
+            <span>Tu sonrisa ilumina mis días,</span> tu mirada me llena de paz,  
+            y cada palabra tuya es una melodía que nunca quiero dejar de escuchar.  
+            Eres mi razón de ser, mi alegría, mi amor eterno.  
+            <span>Te amo con todo mi corazón.</span> ❤️
+        </p>
+        <button onclick="window.location.href='miamorcito.html'">Siguiente</button>
+    </div>
+
+</body>
+</html>
